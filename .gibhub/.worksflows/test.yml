@@ -1,0 +1,26 @@
+name: my first workflow
+
+on: [push]
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Hello World"
+      - name: nultiline script
+        run: |
+          node -v
+          npm -v
+      - name: python command
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
+    run-windows-commands:
+      runs-on: windows-latest
+      steps:
+        - name: Directory
+          run: Get-Location
+        - name: Firectory Bash
+          run: pwd
+          shell: Bash
